@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Doctor_Peteint>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>My Patients</h1>
+<table class="table">
+
+    <thead>
+        <tr>
+         <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Disease</th>
+        <th>Medicine</th>
+            <th></th>
+        <tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model=>item.Petient.User.UserName)
+                </td>
+                  <td>
+                    @Html.DisplayFor(model=>item.Petient.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model=>item.Petient.User.PhoneNumber)
+                </td>              
+                <td>
+                               <td>
+               @foreach (var Disease in @item.Petient.Diseases)
+                {
+                    <span>@Disease.DiseaseName</span>
+                    <br />
+                }
+            </td>
+                </td>  
+                <td>
+                    @Html.DisplayFor(model=>item.Petient.User.Gender)
+                </td> 
+                <td>
+                    @Html.DisplayFor(model=>item.Petient.Medicines)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete","Delete",new {id=item.Petient.Id})
+                    @Html.ActionLink("Edit","Edit",new {id=item.Petient.Id})
+                     <a asp-action="Create" class="btn btn-primary">Add Medicine</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

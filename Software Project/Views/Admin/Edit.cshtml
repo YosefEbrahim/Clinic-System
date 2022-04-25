@@ -1,0 +1,82 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "Edit";
+}
+<h1>Edit</h1>
+
+<form method="post" asp-action="Edit" asp-controller="Admin">
+    <div class="input-group input-group">
+        <label class="form-label">Name</label>
+        <input type="text" id="Fn" placeholder="Enter Name" asp-for="Name" class="form-control">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="input-group input-group">
+
+        <label class="form-label">Phone</label>
+        <input type="tel" placeholder="Enter Phone" asp-for="Phone" class="form-control">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div class="input-group input-group">
+        <label class="form-label">Email</label>
+        <input type="email" placeholder="Enter Email" asp-for="Email" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="input-group input-group">
+        <label class="form-label">Gender</label>
+        <div style="text-align: center">
+            <input type="radio" value="male" name="Gender" asp-for="Gender" class="form-check-input"><span>male</span>
+            <span style="margin:0 20px"></span>
+            <input type="radio" value="female" name="Gender" asp-for="Gender" class="form-check-input"><span>female</span>
+        </div>
+        <span asp-validation-for="Gender" class="text-danger"></span>
+    </div>
+    @if (Model.type.ToLower() == "Patient".ToLower())
+    {
+        @*                <div class="input-group input-group">
+            <label class="form-label">Password</label>
+            <input type="password" placeholder="Enter Password" asp-for="Password" class="form-control">
+            <span asp-validation-for="Email" class="text-danger"></span>
+            </div>*@
+
+             <div class="input-group input-group">
+          <label class="form-label">diesese</label>
+            @for (int x = 0; x < @Model.medicines.Count; x++)
+            {
+            <input type="text" placeholder="Enter diesese" asp-for="diesese[x].DiseaseName" class="form-control">
+            <span asp-validation-for="diesese[x].DiseaseName" class="text-danger"></span>
+            }
+        </div>
+        <div class="input-group input-group">
+            <label class="form-label">medicines</label>
+            @for (int x = 0; x < @Model.medicines.Count; x++)
+            {
+                <input type="text" placeholder="Enter medicines" asp-for="medicines[x].MediceneName" class="form-control">
+                <span asp-validation-for="medicines[x].MediceneName" class="text-danger"></span>
+            }
+        </div>
+    }
+    else
+    {
+
+        <div class="input-group input-group">
+            <label class="form-label">Department</label>
+            <input type="text" placeholder="Enter Department" asp-for="dept.Name" class="form-control">
+            <span asp-validation-for="dept" class="text-danger"></span>
+        </div>
+    }
+    <div style="visibility:hidden">
+        <input type="text" asp-for="type" />
+    </div>
+    @if (Model.type.ToLower() == "patient".ToLower())
+    {
+        <a asp-action="AllPetient" asp-controller="Admin" class="btn btn-secondary">Back</a>
+
+    }
+    else
+    {
+        <a asp-action="AllDoctor" asp-controller="Admin" class="btn btn-secondary">Back</a>
+
+    }
+    <input value="Save" type="submit" class="btn btn-success" />
+</form>
+

@@ -1,0 +1,98 @@
+﻿@model Register
+@*@{
+    ViewData["Title"] = "Delete";
+    }*@
+<h1>Delete</h1>
+<div class="alert alert-danger">
+    <h1>
+        Are you sure to delete this @(Model.type.ToLower() == "patient".ToLower() ? " Patient :" : "Doctor :")
+    </h1>
+    <div>
+
+        <div>
+            <span class="badge bg-primary">Name :</span>
+            <span>@Model.Name</span>
+        </div>
+        <div>
+            <span class="badge bg-primary">Email :</span>
+            <span>@Model.Email</span>
+        </div>
+        <div>
+            <span class="badge bg-primary">Type :</span>
+            <span>@Model.type</span>
+        </div>
+        <div>
+            <span class="badge bg-primary">Phone :</span>
+            <span>@Model.Phone</span>
+        </div>
+        <div>
+            <span class="badge bg-primary">Gender :</span>
+            <span>@Model.Gender</span>
+        </div>
+        @if (Model.type.ToLower() == "patient".ToLower())
+        {
+            <div>
+
+                <table class="table">
+                    <tr class="table-dark">
+                        <th>Midicense Name</th>
+                        <th>Delete</th>
+                    </tr>
+                    @for (int i = 0; i < @Model.medicines.Count; i++)
+                    {
+                        <tr class="table-success">
+
+                            <td>
+                                @Model.medicines[i].MediceneName
+                            </td>
+                            <td>
+                                <button class="btn btn-secondary" type="button" data-toggle="modal" data-target="#myModal" onclick="$('@("#myModal"+@i.ToString())').modal('toggle')">Delete</button>
+                                <div class="modal" id="@("myModal"+@i.ToString())" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Delete Medicine</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="$('@("#myModal"+@i.ToString())').modal('hide')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Do you want delete this item : @Model.medicines[i].MediceneName</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a asp-action="DeleteMidecine" asp-route-Id="@Model.medicines[i].Id" asp-route-PatientId="@Model.Id" class="btn btn-danger">Yes</a>
+                                                <a  class="btn btn-secondary"  onclick="$('@("#myModal"+@i.ToString())').modal('hide')">No</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        }
+
+    </div>
+    <br />
+    @if (Model.type.ToLower() == "Patient".ToLower())
+    {
+        <a asp-action="AllPetient" class="btn btn-success">No</a>
+
+    }
+    else
+    {
+        <a asp-action="AllDoctor" class="btn btn-success">No</a>
+    }
+    <a asp-action="DeletePost" asp-route-id="@Model.Id" class="btn btn-danger">Yes</a>
+</div>
+
+ @if(@TempData["msgDel"]!=null)
+{
+    <h1 class="alert bg-warning">@TempData["msgDel"]</h1>
+}
+
+

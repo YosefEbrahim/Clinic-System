@@ -1,0 +1,49 @@
+﻿@model List<Patient>
+
+@{
+    ViewData["Title"] = "All Petient";
+}
+
+<h1>All Petient</h1>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Phone</th>
+        <th>Disease</th>
+        <th>Medicine</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+           <tr>
+            <td>@item.User.Name</td>
+            <td>@item.User.Email</td>
+            <td>@item.User.Gender</td>
+            <td>@item.User.PhoneNumber</td>
+            <td>
+               @foreach (var Disease in @item.Diseases)
+                {
+                    <span>@Disease.DiseaseName</span>
+                    <br />
+                }
+            </td>
+            <td>
+                @foreach (var medicine in @item.Medicines)
+                {
+                    <span>@medicine.MediceneName</span>
+                    <br />
+                }
+
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.User.Id" class="btn btn-secondary">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.User.Id" class="btn btn-danger">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.User.Id" class="btn btn-success">Edit</a>
+                <a asp-action="AddMedicine" asp-route-id="@item.User.Id" class="btn btn-primary">Add Medicine</a>
+            </td>
+        </tr>
+    }
+</table>

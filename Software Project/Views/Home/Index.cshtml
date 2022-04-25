@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Doctor>
+<div>
+            <img src="images/form-back.webp" alt="image" width="100%" height="500px">
+            <h1 style="text-align: center;margin: 10px 0;font-size: 50px;">Top Doctors</h1>
+        <div class="blog" id="blog">
+        <div class="containar">
+            @foreach (var item in Model)
+            {
+             <div class="contain">
+                 @if(item.User.Gender.ToLower()=="male")
+                    {
+                        <img src="images/doctor.png" alt="image">
+                    }
+                    else if(item.User.Gender.ToLower()=="female")
+                    {
+                        <img src="images/pharmacist.png" alt="image">
+                    }
+                    else
+                    {
+                        <img src="images/download.jpg" alt="image">
+                    }
+                    <div class="con-pb">
+                    <h4>Doctor Name: @item.User.UserName</h4>
+                    <h4>department : @item.Dept?.Name</h4>
+                    <p>@item.User.Email <br /> @item.User.PhoneNumber</p>
+                   <a asp-action="Index" asp-controller="Patient" asp-route-id="@item.Id" class="btn btn-primary">Book</a>
+             </div>
+              </div> 
+            }
+            </div>
+            </div>
+            </div>
+</div>

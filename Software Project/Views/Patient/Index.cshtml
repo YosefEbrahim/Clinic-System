@@ -1,0 +1,39 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "Book";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-success">
+    <h1>Do you want to book this doctor : @Model.Name </h1>
+        <br />
+<div>
+    <span class="badge bg-primary">Name :</span>
+    <span>@Model.Name</span>
+</div>
+<div>
+    <span class="badge bg-primary">Email :</span>
+    <span>@Model.Email</span>
+</div>
+<div>
+    <span class="badge bg-primary">Type :</span>
+    <span>@Model.type</span>
+</div>
+<div>
+    <span class="badge bg-primary">Phone :</span>
+    <span>@Model.Phone</span>
+</div>
+<div>
+    <span class="badge bg-primary">Gender :</span>
+    <span>@Model.Gender</span>
+</div>
+<div>
+    <span class="badge bg-primary">Dept :</span>
+    <span>@Model.dept?.Name</span>
+</div>
+
+</div>
+
+<a asp-action="Index" asp-controller="Home"  class="btn btn-success">No</a>
+ <a asp-action="Book" asp-controller="Patient" asp-route-Id="@Model.Id"  asp-route-UserName="@User.Identity.Name" class="btn btn-secondary">yes</a>

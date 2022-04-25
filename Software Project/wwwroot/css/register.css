@@ -1,0 +1,105 @@
+﻿body{
+    background-color:lightslategrey;
+}
+.containar {
+    width: 300px;
+    margin: 150px auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #000000;
+    min-height: 400px;
+    border-radius: 3%;
+    /*            transition: all 2s ease-in-out;*/
+    position: relative;
+    animation: 2s linear anime;
+}
+
+@keyframes anime {
+    0% {
+        transform: translateY(-30em);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.icon1 {
+    position: relative;
+    top: 40px;
+    text-align: center;
+}
+
+    .icon1 img {
+        width: 100px;
+        animation: 2s ease anime1;
+        /*            transition: all 2s ease-in-out;*/
+    }
+
+@keyframes anime1 {
+    0% {
+        transform: translatex(-10em);
+    }
+
+    100% {
+        transform: translatex(0);
+    }
+}
+
+form {
+    position: relative;
+    top: 70px;
+    animation: 2s ease-in-out anime2;
+}
+
+@keyframes anime2 {
+    0% {
+        transform: translatex(10em);
+    }
+
+    100% {
+        transform: translatex(0);
+    }
+}
+
+form input, select {
+    margin: 15px auto;
+    outline: 0;
+    border: 0;
+    width: 75%;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 5px;
+    height: 25px;
+    display: block;
+    color: white;
+}
+
+    form input[type=date] {
+        display: block;
+        text-align: center;
+    }
+
+    form input[type=radio] {
+        display: inline;
+        width: 10%;
+        height: 15px;
+    }
+
+    form input::placeholder {
+        color: white;
+        text-indent: 2px;
+    }
+
+    form input[type=submit] {
+        width: 45%;
+        margin: 0 auto;
+        cursor: pointer;
+        display: block;
+    }
+
+form span {
+    color: white;
+}
+
+form select option {
+    background-color: rgba(155, 155, 155,0.2);
+}

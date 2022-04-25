@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "b582a809-8404-45d4-b3e3-ee511820c1fc": {
+      "ProjectGuid": "b582a809-8404-45d4-b3e3-ee511820c1fc",
+      "DisplayName": "Software Project",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "466f0198-aa80-449e-96cf-1b6e3c693574": {
+      "ProjectGuid": "466f0198-aa80-449e-96cf-1b6e3c693574",
+      "DisplayName": "Software ProjectTests1",
+      "ColorIndex": 1
+    },
+    "c15c85f1-e67c-4b7f-a026-496a8697438a": {
+      "ProjectGuid": "c15c85f1-e67c-4b7f-a026-496a8697438a",
+      "DisplayName": "Software ProjectTests",
+      "ColorIndex": 2
+    },
+    "ae2d7f13-e31f-4de7-8bd0-f0bc9af74b1a": {
+      "ProjectGuid": "ae2d7f13-e31f-4de7-8bd0-f0bc9af74b1a",
+      "DisplayName": "Software ProjectTests2",
+      "ColorIndex": 3
+    },
+    "100648f4-d030-46fe-9c89-e51a1a8764be": {
+      "ProjectGuid": "100648f4-d030-46fe-9c89-e51a1a8764be",
+      "DisplayName": "Software ProjectTests3",
+      "ColorIndex": 4
+    },
+    "30fa673a-ab2e-4a9d-b8ef-d1a1857a3a53": {
+      "ProjectGuid": "30fa673a-ab2e-4a9d-b8ef-d1a1857a3a53",
+      "DisplayName": "Software ProjectTests4",
+      "ColorIndex": 5
+    },
+    "bd9518d9-b65a-4780-8d8b-f06bef12b859": {
+      "ProjectGuid": "bd9518d9-b65a-4780-8d8b-f06bef12b859",
+      "DisplayName": "Software ProjectTests5",
+      "ColorIndex": 6
+    },
+    "bc6e9e85-5e67-4c9e-824b-b2f8fb03052c": {
+      "ProjectGuid": "bc6e9e85-5e67-4c9e-824b-b2f8fb03052c",
+      "DisplayName": "GetPatientByID",
+      "ColorIndex": 7
+    }
+  },
+  "NextColorIndex": 8
+}

@@ -1,0 +1,59 @@
+﻿@model Register
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>Details</h1>
+
+<div class="alert alert-success">
+    <h1>Information About  @(Model.type.ToLower() == "patient".ToLower() ? " Patient :" : "Doctor :")
+        @Model.Name </h1>
+        <br />
+<div>
+    <span class="badge bg-primary">Name :</span>
+    <span>@Model.Name</span>
+</div>
+<div>
+    <span class="badge bg-primary">Email :</span>
+    <span>@Model.Email</span>
+</div>
+<div>
+    <span class="badge bg-primary">Type :</span>
+    <span>@Model.type</span>
+</div>
+<div>
+    <span class="badge bg-primary">Phone :</span>
+    <span>@Model.Phone</span>
+</div>
+<div>
+    <span class="badge bg-primary">Gender :</span>
+    <span>@Model.Gender</span>
+</div>
+@if(Model.type.ToLower()=="Patient".ToLower())
+{
+<div class="detailsMid">
+    <span class="badge bg-primary">Medicines :</span>
+        <table>
+    @foreach (var medicine in @Model.medicines)
+    {
+        <tr>
+        <td>
+        <span class="badge badge2 bg-danger">@medicine.MediceneName</span>
+        </td>
+        </tr>
+    }
+        </table>
+</div>
+
+}
+</div>
+    @if(Model.type.ToLower()=="patient".ToLower())
+    {
+    <a asp-action="AllPetient" asp-controller="Admin"  class="btn btn-success">Back</a>
+        
+    }
+    else
+    {
+    <a asp-action="AllDoctor" asp-controller="Admin"  class="btn btn-success">Back</a>
+        
+    }
